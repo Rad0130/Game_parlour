@@ -27,4 +27,20 @@ document.getElementById('signup-form').addEventListener('submit', function (e) {
       })
       .catch((error) => console.error('Error:', error));
   });
+
+  fetch('http://localhost:5000/api/signin', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name, email, password }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.success) {
+        alert('Registration Successful!');
+        window.location.href = 'signin.html';
+      } else {
+        alert('Error: ' + data.message);
+      }
+    })
+    .catch((error) => console.error('Error:', error));
   
