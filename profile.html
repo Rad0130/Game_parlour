@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile_update</title>
+    <link rel="stylesheet" href="profile.css">
+    <script src="./backend/routes/profileroutes.js" defer></script>
+</head>
+<body>
+    <!-- Profile Update Form -->
+<form id="profileForm">
+    <input type="text" id="name" placeholder="Name" required />
+    <input type="email" id="email" placeholder="Email" required />
+    <input type="password" id="password" placeholder="New Password" />
+    <button type="submit">Update Profile</button>
+</form>
+
+<script>
+    document.getElementById('profileForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const response = await fetch('/api/profile/update', {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value
+            }),
+        });
+        const result = await response.json();
+        alert(result.message || result.error);
+    });
+</script>
+
+</body>
+</html>
