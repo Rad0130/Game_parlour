@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="game.css">
     <link rel="stylesheet" href="signup.html">
     <link rel="stylesheet" href="signin.html">
-    <script src="game.js" defer></script>
+    <link rel="stylesheet" href="profile.html">
+    <link rel="stylesheet" href="slot.html">
+    <script src="search.js" defer></script>
 
 </head>
 <body>
@@ -15,13 +17,18 @@
         <header>
             <h1>Game Parlour Management System</h1>
             <p>Experience the best gaming environment and services</p>
+            <div class="auth-buttons">
+                <button onclick="window.location.href='signup.html'">Sign Up</button>
+                <button onclick="window.location.href='signin.html'">Sign in</button>
+                <button onclick="window.location.href='profile.html'">UpdateProfile</button>
+            </div>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Enter game genre (e.g., Action, Sports)">
+                <button id="search-button">Search</button>
+                <div id="search-results"></div>
+            </div>
         </header>
-
-        <div class="auth-buttons">
-            <button onclick="window.location.href='signup.html'">Sign Up</button>
-            <button onclick="window.location.href='signin.html'">Sign in</button>
-        </div>
-
+          
         <nav>
             <a href="#about">About</a>
             <a href="#games">Games</a>
@@ -75,13 +82,11 @@
                     <li>... and many more!</li>
                 </ul>
             </section>
-    
-            <!-- Slot Booking Section -->
+
             <section id="slots">
-                <h2>Book Your Slot</h2>
-                <button onclick="bookSlot()">Book Slot</button>
-                <h3>Booked Slots:</h3>
-                <ul id="slot-list"></ul>
+                <h2>Slot Booking</h2>
+                <p>Book your preferred time slot to play games. Slots are available on a first-come, first-serve basis. Each slot is reserved for 1-hour gameplay with options for multiplayer sessions.</p>
+                <button onclick="window.location.href='slot.html'">BookSlot</button>
             </section>
     
             <!-- Game Library Section -->
