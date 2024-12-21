@@ -23,7 +23,7 @@ header {
     background: linear-gradient(to right, #ff4e50, #f9d423);
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 1px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -227,6 +227,38 @@ section:hover {
     transform: scale(1.01);
     transition: all 0.3s ease-in-out;
 }
+
+.search-container {
+    text-align: center;
+    margin: 20px auto;
+  }
+  
+  #search-input {
+    padding: 10px;
+    width: 250px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  #search-button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #search-button:hover {
+    background-color: #0056b3;
+  }
+  
+  #search-results {
+    margin-top: 20px;
+    font-size: 18px;
+  }
+  
 
 /* Responsive Design */
 @media (max-width: 768px) {
