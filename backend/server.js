@@ -18,3 +18,12 @@ app.use('/api', authRoutes);
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+const profileRoutes = require('./routes/profileroutes');
+const slotRoutes = require('./routes/slotroute'); 
+const searchRoutes = require('./routes/searchroutes'); // Adjust path as needed
+app.use('/api/search', searchRoutes);
+
+
+app.use('/api/profile', profileRoutes); 
+app.use('/api/slot', slotRoutes);
