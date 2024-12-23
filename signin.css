@@ -19,6 +19,7 @@ body {
     width: 350px;
     margin-left: 550px;
     margin-top: 200px;
+    self-align: center;
   }
   
   .signin-container h2 {
