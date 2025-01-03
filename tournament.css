@@ -20,16 +20,18 @@ header {
 /* Tournament Section */
 .tournament-container {
     display: flex;
+    flex-wrap: wrap; /* Ensures wrapping on smaller screens */
     justify-content: center;
     gap: 20px;
     padding: 20px;
 }
 
 .tournament-card {
+    flex: 1 1 300px; /* Flexible width with a minimum of 300px */
+    max-width: 400px; /* Prevents cards from becoming too large */
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
-    width: 300px;
     text-align: center;
     transform: scale(1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -38,7 +40,7 @@ header {
     backdrop-filter: blur(10px);
 }
 
-.tournament-card:hover{
+.tournament-card:hover {
     transform: scale(1.1);
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.7);
 }
@@ -96,7 +98,8 @@ header {
     background: #222;
     padding: 20px;
     border-radius: 10px;
-    width: 400px;
+    width: 90%; /* Responsive width */
+    max-width: 400px;
     text-align: center;
 }
 
@@ -148,4 +151,44 @@ header {
 
 .hidden {
     display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        font-size: 1.5rem;
+        padding: 15px;
+    }
+
+    .tournament-card img {
+        height: 150px;
+    }
+
+    .tournament-container {
+        flex-direction: column; /* Stack cards vertically */
+        align-items: center;
+    }
+
+    .tournament-card {
+        width: 90%; /* Full width for smaller screens */
+    }
+
+    .modal-content {
+        width: 95%; /* Adjust modal size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        font-size: 1.2rem;
+        padding: 10px;
+    }
+
+    .register-btn, .submit-btn {
+        padding: 8px 12px; /* Adjust button size */
+    }
+
+    .modal-content input {
+        padding: 8px; /* Adjust input padding */
+    }
 }
