@@ -12,11 +12,14 @@ include("connect.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
     <link rel="stylesheet" href="game.css">
+    <link rel="stylesheet" href="profile.html">
+    
+
 </head>
 <body>
     <div>
       <header>
-      <p  style="font-size:20px; font-weight:bold;">
+      <p  style="font-size:20px; font-weight:bold; color:Black;">
        Hello  <?php 
        if(isset($_SESSION['email'])){
         $email=$_SESSION['email'];
@@ -34,19 +37,13 @@ include("connect.php");
                 <button onclick="window.location.href='index.html'">Logout</button>
                 <button onclick="window.location.href='profile.html'">UpdateProfile</button>
             </div>
-            <div class="search-container">
-                <input type="text" id="search-input" placeholder="Enter game genre (e.g., Action, Sports)">
-                <button id="search-button">Search</button>
-                <div id="search-results"></div>
-            </div>
         </header>
           
         <nav>
             <a href="#about">About</a>
-            <a href="#games">Games</a>
+            <a href="library.html">Game Library</a>
             <a href="#slots">Slot Booking</a>
-            <a href="#library">Game Library</a>
-            <a href="#tournaments">Tournaments</a>
+            <a href="tournament.html">Tournaments</a>
             <a href="#staff">Our Staff</a>
             <a href="#contact">Contact</a>
         </nav>
@@ -81,40 +78,11 @@ include("connect.php");
                 <h2>About Us</h2>
                 <p>Welcome to the Game Parlour Management System. We offer a dynamic platform for gamers to play top-tier games, participate in esports tournaments, and borrow games from our library. Our parlour is equipped with state-of-the-art facilities and managed by experienced staff to ensure the best gaming experience.</p>
             </section>
-    
-            <!-- Games Section -->
-            <section id="games">
-                <h2>Games Available</h2>
-                <ul>
-                    <li>GTA 5</li>
-                    <li>FIFA</li>
-                    <li>Call of Duty</li>
-                    <li>Valorant</li>
-                    <li>Assassin's Creed</li>
-                    <li>... and many more!</li>
-                </ul>
-            </section>
 
             <section id="slots">
                 <h2>Slot Booking</h2>
                 <p>Book your preferred time slot to play games. Slots are available on a first-come, first-serve basis. Each slot is reserved for 1-hour gameplay with options for multiplayer sessions.</p>
                 <button onclick="window.location.href='slot.html'">BookSlot</button>
-            </section>
-    
-            <!-- Game Library Section -->
-            <section id="library">
-                <h2>Game Library</h2>
-                <button onclick="borrowGame()">Borrow a Game</button>
-                <h3>Borrowed Games:</h3>
-                <ul id="borrowed-games-list"></ul>
-            </section>
-    
-            <!-- Tournaments Section -->
-            <section id="tournaments">
-                <h2>eSports Tournament</h2>
-                <button onclick="registerForTournament()">Register for Tournament</button>
-                <h3>Registered Players:</h3>
-                <ul id="tournament-list"></ul>
             </section>
     
             <!-- Staff Section -->
