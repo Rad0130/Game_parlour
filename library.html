@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Library</title>
+    <link rel="stylesheet" href="library.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Game Library</h1>
+        <div class="search-bar">
+            <input type="text" id="gameSearch" placeholder="Search by game name or genre...">
+            <button id="searchBtn">Search</button>
+        </div>
+    </header>
+
+    <section class="genre-section">
+        <div class="genre-container">
+            <button class="genre-btn" data-genre="Action">Action</button>
+            <button class="genre-btn" data-genre="Adventure">Adventure</button>
+            <button class="genre-btn" data-genre="Sports">Sports</button>
+        </div>
+    </section>
+
+    <section id="gameList" class="game-list">
+        <!-- Games will be dynamically loaded here -->
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Fetch and display all games on page load
+            fetchGames('', '');
+        });
+
+        document.getElementById('searchBtn').addEventListener('click', function () {
+            const searchInput = document.getElementById('gameSearch').value.toLowerCase();
+            fetchGames(searchInput, '');
+        });
+
+        document.querySelectorAll('.genre-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                const genre = button.dataset.genre;
+                fetchGames('', genre); // Filter games by genre
+            });
+        });
+
+        function fetchGames(searchTerm, genre) {
+            const gameList = document.getElementById('gameList');
+            gameList.innerHTML = ''; // Clear existing games
+
+            const games = [
+                { id: 1, name: "Assassin's Creed", genre: 'Action', poster: 'ASSA.jpeg' },
+                { id: 2, name: 'Call of Duty', genre: 'Action', poster: 'COD.jpg' },
+                { id: 3, name: 'FIFA', genre: 'Sports', poster: 'FIFA.jpeg' },
+                { id: 4, name: 'GTA 5', genre: 'Action', poster: 'GTA5.jpeg' },
+                { id: 5, name: 'Uncharted', genre: 'Adventure', poster: 'unchar.jpeg' },
+            ];
+
+            const filteredGames = games.filter(game => {
+                const matchesSearch = game.name.toLowerCase().includes(searchTerm) || game.genre.toLowerCase().includes(searchTerm);
+                const matchesGenre = genre ? game.genre.toLowerCase() === genre.toLowerCase() : true;
+                return matchesSearch && matchesGenre;
+            });
+
+            filteredGames.forEach(game => {
+                const gameCard = document.createElement('div');
+                gameCard.classList.add('game-card');
+                gameCard.innerHTML = `
+                    <img src="${game.poster}" alt="${game.name}">
+                    <h3>${game.name}</h3>
+                    <p>${game.genre}</p>
+                    <button onclick="borrowGame(${game.id}, '${game.name}')">Borrow</button>
+                `;
+                gameList.appendChild(gameCard);
+            });
+
+            if (filteredGames.length === 0) {
+                gameList.innerHTML = '<p style="color: white; text-align: center;">No games found.</p>';
+            }
+        }
+
+        function borrowGame(gameId, gameName) {
+            const userId = 1; // Replace this with the logged-in user ID
+            const borrowData = {
+                userId: userId,
+                gameId: gameId,
+                gameName: gameName,
+            };
+
+            fetch('borrowGame.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(borrowData),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert(`You have successfully borrowed "${gameName}"!`);
+                    } else {
+                        alert('Failed to borrow the game. Please try again.');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+
+</body>
+</html>

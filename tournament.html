@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournament Segment</title>
+    <link rel="stylesheet" href="tournament.css">
+    <script src="tournament.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Game Tournament</h1>
+    </header>
+
+    <section class="tournament-container">
+        <!-- Valorant Segment -->
+        <div class="tournament-card">
+            <img src="valorant.jpeg" alt="Valorant">
+            <h2>Valorant Tournament</h2>
+            <p>Date: January 15, 2025</p>
+            <p>Time: 5:00 PM</p>
+            <button class="register-btn" data-segment="Valorant">Register</button>
+        </div>
+
+        <!-- FIFA Segment -->
+        <div class="tournament-card">
+            <img src="FIFA.jpeg" alt="FIFA">
+            <h2>FIFA Tournament</h2>
+            <p>Date: January 20, 2025</p>
+            <p>Time: 3:00 PM</p>
+            <button class="register-btn" data-segment="FIFA">Register</button>
+        </div>
+
+        <!-- Cricket Segment -->
+        <div class="tournament-card">
+            <img src="cricket.webp" alt="Cricket">
+            <h2>Cricket Tournament</h2>
+            <p>Date: January 25, 2025</p>
+            <p>Time: 10:00 AM</p>
+            <button class="register-btn" data-segment="Cricket">Register</button>
+        </div>
+    </section>
+
+    <!-- Registration Form Modal -->
+    <div id="registrationModal" class="modal hidden">
+        <div class="modal-content">
+            <span id="closeModal">&times;</span>
+            <h2>Register for <span id="segmentName"></span></h2>
+            <form id="registrationForm" method="POST" action="tournament.php">
+                <input type="hidden" name="segment" id="segmentInput">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required>
+                <button type="submit" class="submit-btn">Register</button>
+            </form>
+            <p id="successMessage" class="hidden success-message">Registration successful!</p>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+        const registerButtons = document.querySelectorAll(".register-btn");
+        const modal = document.getElementById("registrationModal");
+        const closeModal = document.getElementById("closeModal");
+        const segmentInput = document.getElementById("segmentInput");
+        const segmentName = document.getElementById("segmentName");
+        const successMessage = document.getElementById("successMessage");
+
+        // Open Modal
+        registerButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+                const segment = button.getAttribute("data-segment");
+                segmentInput.value = segment;
+                segmentName.textContent = segment;
+                modal.classList.remove("hidden");
+                successMessage.classList.add("hidden"); // Hide success message if visible
+            });
+        });
+
+        // Close Modal
+        closeModal.addEventListener("click", () => {
+            modal.classList.add("hidden");
+        });
+    });
+
+    </script>
+</body>
+</html>

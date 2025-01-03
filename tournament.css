@@ -1,0 +1,151 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    background: url('gback.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    color: rgb(225, 219, 21);
+    overflow-x: hidden;
+}
+
+header {
+    text-align: center;
+    background-color: #e74c3c;
+    padding: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+}
+
+/* Tournament Section */
+.tournament-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.tournament-card {
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+    width: 300px;
+    text-align: center;
+    transform: scale(1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: slideUp 1.5s ease-in-out;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.tournament-card:hover{
+    transform: scale(1.1);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.7);
+}
+
+.tournament-card img {
+    width: 100%;
+    border-radius: 10px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.tournament-card h2 {
+    margin-top: 10px;
+    color: #feca57;
+}
+
+.tournament-card p {
+    margin: 5px 0;
+}
+
+.register-btn {
+    background-color: #e74c3c;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.register-btn:hover {
+    background-color: #feca57;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    text-align: center;
+}
+
+.modal-content label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.modal-content input {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+}
+
+.submit-btn {
+    background-color: #feca57;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #e74c3c;
+    color: white;
+}
+
+#closeModal {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #fff;
+}
+
+/* Success Message Styling */
+.success-message {
+    color: #2ecc71;
+    font-weight: bold;
+    margin-top: 10px;
+    display: none;
+}
+
+.hidden {
+    display: none;
+}

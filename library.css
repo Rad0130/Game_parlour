@@ -1,0 +1,167 @@
+/* Resetting some default browser styles */
+body, h1, p, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('gback.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    color: rgb(225, 219, 21);
+    overflow-x: hidden;
+}
+
+/* Header styling */
+header {
+    text-align: center;
+    background: linear-gradient(90deg, #ff6b6b, #feca57);
+    padding: 20px 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Subtle shadow for readability */
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.search-bar input {
+    padding: 10px;
+    width: 250px;
+    border: 2px solid #555;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    background: #ff9f43;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.search-bar button:hover {
+    background: #feca57;
+}
+
+
+/* Genre section styling */
+.genre-section {
+    padding: 20px 0;
+    text-align: center;
+}
+
+.genre-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.genre-btn {
+    padding: 10px 20px;
+    background: #ff6b6b;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.genre-btn:hover {
+    background: #ff4e4e;
+    transform: scale(1.05);
+}
+
+/* Game list styling */
+.game-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.game-card {
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    transform: scale(1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: slideUp 1.5s ease-in-out;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.game-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.7);
+}
+
+.game-card img {
+    width: 100%;
+    height: 200px; /* Maintain uniform card size */
+    /* object-fit: contain;  */
+    background-color: #222; /* Add a background color for empty spaces */
+    padding: 10px; /* Add padding for visual spacing */
+}
+
+.game-card h3 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.game-card p {
+    font-size: 0.9rem;
+    margin: 5px 0;
+    color: #ccc;
+}
+
+.game-card button {
+    margin: 10px 0;
+    padding: 10px;
+    background: #54a0ff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.game-card button:hover {
+    background: #2e86de;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .search-bar input {
+        width: 200px;
+    }
+}
